@@ -26,13 +26,29 @@ Content-Type: application/json
 GET {{base_url}}/accounts/5fa55f093a8e520ee0205991
 
 ### 
-// Ændre balancen på en konto
+// Alter the balance on an account 
 PUT {{base_url}}/accounts/5fa55f093a8e520ee0205991
 Content-Type: application/json
 
 {
     "balance": "123456789"
 }
+
+###
+// Delete a user 
+DELETE {{base_url}}/accounts/5fa5725f52991d12f427977f
+
+
+
+
+
+
+
+
+
+
+
+
 ###
 //Get all clients 
 GET {{base_url}}/client

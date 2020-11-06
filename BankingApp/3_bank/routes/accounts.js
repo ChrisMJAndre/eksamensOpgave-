@@ -49,7 +49,14 @@ routerAccount.put("/:id", async (req, res) => {
   let updateBalance = await accountModel
     .findByIdAndUpdate(req.params.id, { balance: req.body.balance })
     .exec();
-  res.send(updateBalance);
+  res.send("Updated balance for " + updateBalance.alias + updateBalance);
 });
 
+// Implement endpoint for deleting an account using id
+routerAccount.delete("/:id", async (req, res) => {
+  let deleteAccount = await accountModel
+    .findByIdAndDelete(req.params.id)
+    .exec();
+  res.send(deleteAccount);
+});
 module.exports = routerAccount;
