@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-// 3. Account Schema
+// Creating Account Schema
 const AccountSchema = new mongoose.Schema({
   id: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    required: false,
   },
   client_id: {
     type: String,
@@ -16,32 +16,10 @@ const AccountSchema = new mongoose.Schema({
   },
   alias: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
 const model = mongoose.model("Account", AccountSchema);
 
-const ClientSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-  },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  street_address: {
-    type: String,
-    required: true,
-  },
-});
-
-const model2 = mongo.model2("Client", ClientSchema);
-
 module.exports = model;
-module.exports = model2;

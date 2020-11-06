@@ -1,13 +1,41 @@
-//Reference to base url 
+// Reference to base url 
 @base_url = https://localhost:3443
 
-
-//Home page 
+// Home page 
 GET {{base_url}}
 
 ###
-//Get all accounts
+// Get all accounts
 GET {{base_url}}/accounts
+
+###
+// Add User 
+POST {{base_url}}/accounts
+Content-Type: application/json
+
+{
+  
+    "client_id": "test",
+    "balance": "150",
+    "alias": "test"
+
+}
+
+### 
+// Get specific account from id 
+GET {{base_url}}/accounts/5fa55f093a8e520ee0205991
+
+### 
+// Ændre balancen på en konto
+PUT {{base_url}}/accounts/5fa55f093a8e520ee0205991
+Content-Type: application/json
+
+{
+    "balance": "123456789"
+}
+###
+//Get all clients 
+GET {{base_url}}/client
 
 ###
 //Get balance for an accounts (in this case Christopher)
