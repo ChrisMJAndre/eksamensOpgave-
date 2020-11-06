@@ -1,19 +1,7 @@
 const mongoose = require("mongoose");
 
-// 3. Finish the account schema
+// 3. Account Schema
 const AccountSchema = new mongoose.Schema({
-  /**
-   * the schema follows this structure:
-   * <fieldName>: {
-   *  type: <type>,
-   *  required: <bool>
-   * },
-   * <anotherFieldName>: {
-   *  type: <type>,
-   *  required: <bool>
-   * }, and so on.
-   */
-
   firstName: {
     type: String,
     required: true,
