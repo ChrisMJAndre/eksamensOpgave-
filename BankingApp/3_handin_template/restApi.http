@@ -1,0 +1,29 @@
+//Reference to base url 
+@base_url = https://localhost:3443
+
+
+//Home page 
+GET {{base_url}}
+
+###
+//Get all accounts
+GET {{base_url}}/accounts
+
+###
+//Get balance for an accounts (in this case Christopher)
+GET {{base_url}}/accounts/Christopher 
+
+
+###
+
+//Add a user
+POST {{base_url}}/accounts/add 
+Content-Type: application/json
+
+{
+    "firstName": "Rasmus",
+    "lastName": "Rasmussen",
+    "balance": "150",
+    "branch": "CBS Banking branch 1"
+
+}
