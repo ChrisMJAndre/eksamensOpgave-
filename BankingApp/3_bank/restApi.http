@@ -9,7 +9,7 @@ GET {{base_url}}
 GET {{base_url}}/accounts
 
 ###
-// Add User 
+// Add Account 
 POST {{base_url}}/accounts
 Content-Type: application/json
 
@@ -27,7 +27,7 @@ GET {{base_url}}/accounts/5fb28020e8fd3e35cc10ac6d
 
 ### 
 // Alter the balance on an account 
-PUT {{base_url}}/accounts/5fa55f093a8e520ee0205991
+PUT {{base_url}}/accounts/5fb29590244cce3944792d84
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 
 ###
-// Delete a user 
+// Delete a Account 
 DELETE {{base_url}}/accounts/5fb287e9b7ec594b942c15dc
 
 
@@ -61,21 +61,38 @@ Content-Type: application/json
 //Get all clients 
 GET {{base_url}}/client
 
-###
-//Get balance for an accounts (in this case Christopher)
-GET {{base_url}}/accounts/Christopher 
-
 
 ###
-
-//Add a user
-POST {{base_url}}/accounts/add 
+//Add a Client
+POST {{base_url}}/client
 Content-Type: application/json
 
 {
-    "firstName": "Rasmus",
+    "firstName": "Mads",
     "lastName": "Rasmussen",
-    "balance": "150",
-    "branch": "CBS Banking branch 1"
+    "street_address": "Egilsgade 55, 3th",
+    "city": "kbh"
+    
 
 }
+
+### 
+// Get information about client using specific ID 
+GET {{base_url}}/client/5fb2a5df73783e55741c5564
+
+
+### 
+//Updating information about Client 
+PUT {{base_url}}/client/5fb2a5df73783e55741c5564
+Content-Type: application/json
+
+{
+    "firstName": "Mads",
+    "lastName": "Eriksen",
+    "street_address": "Egilsgade 55, 3th",
+    "city": "kbh"
+}
+
+###
+// Delete a Client 
+DELETE {{base_url}}/client/5fb2a7717c42cd2108581d9d

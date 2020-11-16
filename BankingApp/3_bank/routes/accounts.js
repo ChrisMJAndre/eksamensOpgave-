@@ -8,7 +8,7 @@ routerAccount.get("/", async (req, res) => {
   accountModel.find().then((accounts) => res.json({ accounts }));
 });
 
-// Implement endpoint to create a new User
+// Implement endpoint to create a new Account
 routerAccount.post("/", async (req, res) => {
   let create = await accountModel.create({
     client_id: req.body.client_id,
@@ -16,7 +16,7 @@ routerAccount.post("/", async (req, res) => {
     alias: req.body.alias,
   });
   res.send(
-    "User added: \n" +
+    "Account added: \n" +
       "Client_id: " +
       req.body.client_id +
       "\n balance: " +
@@ -68,7 +68,7 @@ routerAccount.put("/:id", async (req, res) => {
   let updateBalance = await accountModel
     .findByIdAndUpdate(req.params.id, { balance: req.body.balance })
     .exec();
-  res.send("Updated balance for " + updateBalance.alias + updateBalance);
+  res.send("Updated balance for " + updateBalance.alias);
 });
 
 // Implement endpoint for deleting an account using id
@@ -78,7 +78,6 @@ routerAccount.delete("/:id", async (req, res) => {
     .exec();
   res.send(deleteAccount);
 });
-module.exports = routerAccount;
 
 // Implement a new endpoint, that will be able to return a specific balance by name.
 routerAccount.get("/:id/balance", async (req, res) => {
@@ -86,3 +85,5 @@ routerAccount.get("/:id/balance", async (req, res) => {
   let oneBalance = accountBalance.balance;
   res.send(accountBalance.alias + "s balance is: " + oneBalance);
 });
+
+module.exports = routerAccount;
