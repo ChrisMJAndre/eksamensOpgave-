@@ -16,14 +16,14 @@ Content-Type: application/json
 {
   
     "client_id": "test",
-    "balance": "150",
+    "balance": "100",
     "alias": "test"
 
 }
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fa55f093a8e520ee0205991
+GET {{base_url}}/accounts/5fb28020e8fd3e35cc10ac6d
 
 ### 
 // Alter the balance on an account 
@@ -36,16 +36,24 @@ Content-Type: application/json
 
 ###
 // Delete a user 
-DELETE {{base_url}}/accounts/5fa5725f52991d12f427977f
+DELETE {{base_url}}/accounts/5fb287e9b7ec594b942c15dc
 
 
+###
+// Balance for a specific account using id
+GET {{base_url}}/accounts/5fb28020e8fd3e35cc10ac6d/balance
 
 
+### 
+//Transfering funds from one account to another 
+PUT {{base_url}}/accounts/transfer 
+Content-Type: application/json
 
-
-
-
-
+{
+    "fromAccount": "5fb29598244cce3944792d85",
+    "toAccount": "5fb29590244cce3944792d84",
+    "amount": 50
+}
 
 
 

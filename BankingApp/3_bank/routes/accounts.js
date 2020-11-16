@@ -2,17 +2,6 @@ const express = require("express");
 const routerAccount = express.Router();
 
 const accountModel = require("../models/account.js");
-/*
-// Implement a new endpoint, that will be able to return a specific balance by name.
-routerAccount.get("/:name", async function (req, res) {
-  let accountBalance = await accountModel
-    .findOne({ firstName: req.params.name })
-    .exec();
-  let oneBalance = accountBalance.balance;
-  res.send(req.params.name + "s balance is: " + oneBalance);
-  //res.send(oneAccount.balance);
-});
-*/
 
 // Implement endpoint for showing all accounts
 routerAccount.get("/", async (req, res) => {
@@ -44,6 +33,36 @@ routerAccount.get("/:id", async (req, res) => {
   res.send(oneAccount.alias + "s account:" + oneAccount);
 });
 
+//Endpoint - that will transfer funds from one account to another
+// has to be over the other put function or else the other put function takes transfer as the parameter
+routerAccount.put("/transfer", async (req, res) => {
+  const transferAmount = req.body.amount;
+  const fromAccount = await accountModel.findById(req.body.fromAccount).exec();
+  const toAccount = await accountModel.findById(req.body.toAccount).exec();
+
+  fromAccountBalance = fromAccount.balance;
+  toAccountBalance = toAccount.balance;
+
+  if (req.body.amount > fromAccountBalance) {
+    res.send("insufficent funds");
+  } else {
+    await accountModel
+      .updateOne(
+        { _id: req.body.fromAccount },
+        { balance: fromAccountBalance - transferAmount }
+      )
+      .exec();
+
+    await accountModel
+      .updateOne(
+        { _id: req.body.toAccount },
+        { balance: toAccountBalance + transferAmount }
+      )
+      .exec();
+    res.send("Transfered " + transferAmount + "to another account");
+  }
+});
+
 // Implement endpoint for changing an accounts balance
 routerAccount.put("/:id", async (req, res) => {
   let updateBalance = await accountModel
@@ -60,3 +79,10 @@ routerAccount.delete("/:id", async (req, res) => {
   res.send(deleteAccount);
 });
 module.exports = routerAccount;
+
+// Implement a new endpoint, that will be able to return a specific balance by name.
+routerAccount.get("/:id/balance", async (req, res) => {
+  let accountBalance = await accountModel.findById(req.params.id).exec();
+  let oneBalance = accountBalance.balance;
+  res.send(accountBalance.alias + "s balance is: " + oneBalance);
+});
