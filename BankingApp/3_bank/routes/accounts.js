@@ -43,7 +43,7 @@ routerAccount.put("/transfer", async (req, res) => {
   fromAccountBalance = fromAccount.balance;
   toAccountBalance = toAccount.balance;
 
-  if (req.body.amount > fromAccountBalance) {
+  if (transferAmount > fromAccountBalance) {
     res.send("insufficent funds");
   } else {
     await accountModel
