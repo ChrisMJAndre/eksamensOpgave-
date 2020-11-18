@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-// 3. Account Schema
+// Creating Account Schema
 const AccountSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
+  id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
   },
-  lastName: {
+  client_id: {
     type: String,
     required: true,
   },
@@ -14,9 +14,9 @@ const AccountSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  branch: {
+  alias: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 

@@ -1,29 +1,98 @@
-//Reference to base url 
+// Reference to base url 
 @base_url = https://localhost:3443
 
-
-//Home page 
+// Home page 
 GET {{base_url}}
 
 ###
-//Get all accounts
+// Get all accounts
 GET {{base_url}}/accounts
 
 ###
-//Get balance for an accounts (in this case Christopher)
-GET {{base_url}}/accounts/Christopher 
-
-
-###
-
-//Add a user
-POST {{base_url}}/accounts/add 
+// Add Account 
+POST {{base_url}}/accounts
 Content-Type: application/json
 
 {
-    "firstName": "Rasmus",
-    "lastName": "Rasmussen",
-    "balance": "150",
-    "branch": "CBS Banking branch 1"
+  
+    "client_id": "test",
+    "balance": "100",
+    "alias": "test"
 
 }
+
+### 
+// Get specific account from id 
+GET {{base_url}}/accounts/5fb572f924dfe730841ed90a
+
+### 
+// Alter the balance on an account 
+PUT {{base_url}}/accounts/5fb572f924dfe730841ed90a
+Content-Type: application/json
+
+{
+    "balance": "123456789"
+}
+
+###
+// Delete a Account 
+DELETE {{base_url}}/accounts/5fb572f924dfe730841ed90a
+
+
+###
+// Balance for a specific account using id
+GET {{base_url}}/accounts/5fb29590244cce3944792d84/balance
+
+
+### 
+//Transfering funds from one account to another 
+PUT {{base_url}}/accounts/transfer 
+Content-Type: application/json
+
+{
+    "fromAccount": "5fb29598244cce3944792d85",
+    "toAccount": "5fb29590244cce3944792d84",
+    "amount": 50
+}
+
+
+
+###
+//Get all clients 
+GET {{base_url}}/client
+
+
+###
+//Add a Client
+POST {{base_url}}/client
+Content-Type: application/json
+
+{
+    "firstName": "Mads",
+    "lastName": "Rasmussen",
+    "street_address": "Egilsgade 55, 3th",
+    "city": "kbh"
+    
+
+}
+
+### 
+// Get information about client using specific ID 
+GET {{base_url}}/client/5fb5733024dfe730841ed90b
+
+
+### 
+//Updating information about Client 
+PUT {{base_url}}/client/5fb5733024dfe730841ed90b
+Content-Type: application/json
+
+{
+    "firstName": "Mads",
+    "lastName": "Eriksen",
+    "street_address": "Egilsgade 55, 3th",
+    "city": "kbh"
+}
+
+###
+// Delete a Client 
+DELETE {{base_url}}/client/5fb2a7717c42cd2108581d9d

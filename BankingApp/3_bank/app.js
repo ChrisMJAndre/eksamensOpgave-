@@ -12,9 +12,13 @@ app.use(bodyParser.json());
 
 //Import Routes
 const accountRoute = require("./routes/accounts");
-const router = require("./routes/accounts");
+const routerAccount = require("./routes/accounts");
+
+const clientRoute = require("./routes/clients");
+const routerClient = require("./routes/clients");
 
 app.use("/accounts", accountRoute);
+app.use("/client", clientRoute);
 
 // Starting ssl server
 const sslServer = https.createServer(
@@ -23,7 +27,8 @@ const sslServer = https.createServer(
     cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem")),
   },
   app,
-  router
+  routerAccount,
+  routerClient
 );
 
 //Initial route
