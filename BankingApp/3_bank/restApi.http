@@ -23,11 +23,11 @@ Content-Type: application/json
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fb28020e8fd3e35cc10ac6d
+GET {{base_url}}/accounts/5fb572f924dfe730841ed90a
 
 ### 
 // Alter the balance on an account 
-PUT {{base_url}}/accounts/5fb29590244cce3944792d84
+PUT {{base_url}}/accounts/5fb572f924dfe730841ed90a
 Content-Type: application/json
 
 {
@@ -36,12 +36,12 @@ Content-Type: application/json
 
 ###
 // Delete a Account 
-DELETE {{base_url}}/accounts/5fb287e9b7ec594b942c15dc
+DELETE {{base_url}}/accounts/5fb572f924dfe730841ed90a
 
 
 ###
 // Balance for a specific account using id
-GET {{base_url}}/accounts/5fb28020e8fd3e35cc10ac6d/balance
+GET {{base_url}}/accounts/5fb29590244cce3944792d84/balance
 
 
 ### 
@@ -78,12 +78,12 @@ Content-Type: application/json
 
 ### 
 // Get information about client using specific ID 
-GET {{base_url}}/client/5fb2a5df73783e55741c5564
+GET {{base_url}}/client/5fb5733024dfe730841ed90b
 
 
 ### 
 //Updating information about Client 
-PUT {{base_url}}/client/5fb2a5df73783e55741c5564
+PUT {{base_url}}/client/5fb5733024dfe730841ed90b
 Content-Type: application/json
 
 {
