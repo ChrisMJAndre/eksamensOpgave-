@@ -3,15 +3,6 @@ var seaport = require('seaport');
 var sp = seaport.connect('localhost', 9090);
 
 
-function findSum() { 
-    let result = 0;
-    for (var i = 0; i < 100000; i++){
-        result = result + i; 
-    }
-    return result;
-}
-console.log(findSum());
-
 let pings = 0;
 var server = http.createServer(function (req, res){
     pings++
