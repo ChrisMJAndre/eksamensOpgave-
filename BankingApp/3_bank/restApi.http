@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fb572f924dfe730841ed90a
+GET {{base_url}}/accounts/5fb29590244cce3944792d84
 
 ### 
 // Alter the balance on an account 

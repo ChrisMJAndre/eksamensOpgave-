@@ -6,7 +6,22 @@ const db = require("./db.js");
 const path = require("path");
 const fs = require("fs");
 const https = require("https");
+var seaport = require("seaport");
+var sp = seaport.connect("localhost", 9090);
 
+//Load Balancer
+let pings = 0;
+var server = https.createServer(function (req, res) {
+  pings++;
+  res.end(`Port: ` + this.address().port);
+  console.log("Server A responded to request " + pings);
+});
+
+server.listen(sp.register("server"), function () {
+  console.log("Server A is listening on port: " + this.address().port);
+});
+
+//curl http://localhost:8080
 //Added Json Body-parser
 app.use(bodyParser.json());
 
