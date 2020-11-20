@@ -60,12 +60,12 @@ Content-Type: application/json
 
 ###
 //Get all clients 
-GET {{base_url}}/client
+GET {{base_url}}/clients
 
 
 ###
 //Add a Client
-POST {{base_url}}/client
+POST {{base_url}}/clients
 Content-Type: application/json
 
 {
@@ -79,12 +79,12 @@ Content-Type: application/json
 
 ### 
 // Get information about client using specific ID 
-GET {{base_url}}/client/5fb5733024dfe730841ed90b
+GET {{base_url}}/clients/5fb5733024dfe730841ed90b
 
 
 ### 
 //Updating information about Client 
-PUT {{base_url}}/client/5fb5733024dfe730841ed90b
+PUT {{base_url}}/clients/5fb5733024dfe730841ed90b
 Content-Type: application/json
 
 {
@@ -96,4 +96,4 @@ Content-Type: application/json
 
 ###
 // Delete a Client 
-DELETE {{base_url}}/client/5fb2a7717c42cd2108581d9d
+DELETE {{base_url}}/clients/5fb2a7717c42cd2108581d9d
