@@ -69,9 +69,9 @@ POST {{base_url}}/clients
 Content-Type: application/json
 
 {
-    "firstName": "Mads",
-    "lastName": "Rasmussen",
-    "street_address": "Egilsgade 55, 3th",
+    "firstname": "Mads",
+    "lastname": "Rasmussen",
+    "streetAddress": "Egilsgade 55, 3th",
     "city": "kbh"
     
 
@@ -88,9 +88,9 @@ PUT {{base_url}}/clients/5fb5733024dfe730841ed90b
 Content-Type: application/json
 
 {
-    "firstName": "Mads",
-    "lastName": "Eriksen",
-    "street_address": "Egilsgade 55, 3th",
+    "firstname": "Mads",
+    "lastname": "Eriksen",
+    "streetAddress": "Egilsgade 55, 3th",
     "city": "kbh"
 }
 

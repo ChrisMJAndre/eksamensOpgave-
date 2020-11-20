@@ -32,7 +32,7 @@ const sslServer = https.createServer(
 
 //Initial route
 app.get("/", (req, res) => {
-  res.send("Welcome to the banking app");
+  res.send("Welcome to the banking app from " + this.address().port);
 });
 
 //Start listening
