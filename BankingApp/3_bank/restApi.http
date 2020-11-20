@@ -15,28 +15,29 @@ Content-Type: application/json
 
 {
   
-    "client_id": "test",
+    "client_id": "Mads",
     "balance": "100",
-    "alias": "test"
+    "alias": "Mads"
 
 }
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fb29590244cce3944792d84
+GET {{base_url}}/accounts/5fb7c8d3516e832f98595507
 
 ### 
-// Alter the balance on an account 
-PUT {{base_url}}/accounts/5fb572f924dfe730841ed90a
+// Alter an account 
+PUT {{base_url}}/accounts/5fb7c8d3516e832f98595507
 Content-Type: application/json
 
 {
-    "balance": "123456789"
+    "balance": 123456789,
+    "alias":"Altered Alias"
 }
 
 ###
 // Delete a Account 
-DELETE {{base_url}}/accounts/5fb572f924dfe730841ed90a
+DELETE {{base_url}}/accounts/5fb295a1244cce3944792d86
 
 
 ###

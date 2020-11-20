@@ -19,7 +19,7 @@ const accountRoute = require("./routes/accounts");
 const clientRoute = require("./routes/clients");
 
 app.use("/accounts", accountRoute);
-app.use("/client", clientRoute);
+app.use("/clients", clientRoute);
 
 // Starting ssl server
 const sslServer = https.createServer(

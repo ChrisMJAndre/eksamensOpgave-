@@ -3,19 +3,20 @@ const mongoose = require("mongoose");
 // Creating Client Schema
 const ClientSchema = new mongoose.Schema(
   {
+    //id is not reguired because mongo auto creates an id by when a new account is created
     id: {
       type: mongoose.Schema.Types.ObjectId,
       required: false,
     },
-    firstName: {
+    firstname: {
       type: String,
       required: true,
     },
-    lastName: {
+    lastname: {
       type: String,
       required: true,
     },
-    street_address: {
+    streetAddress: {
       type: String,
       required: true,
     },
