@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
-const Client = require("./banking_application/models/client");
-const Account = require("./banking_application/models/account");
+const Client = require("./models/client");
+const Account = require("./models/account");
 const fetch = require("node-fetch");
 const chai = require("chai");
 const should = chai.should();
-const config = require("./banking_application/config/index.js");
+//const config = require("./banking_application/config/index.js");
 // const expect = require('chai').expect;
 const chaiHttp = require("chai-http");
 const { expect } = require("chai");
 chai.use(chaiHttp);
-const baseUrl = "https://localhost:8080"
+const baseUrl = "https://localhost:8080";
 
 // connecto to db
-let connection = mongoose.connect(config.databaseURL, {
+let connection = mongoose.connect("mongodb://localhost/Banking", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
@@ -36,15 +36,15 @@ const accountTemplate = () => {
 };
 
 // before((done) => {
-  // Account.remove({}, () => {
-  //     Client.remove({}, () => {
-  //         done();
-  //     });
-  // });
+// Account.remove({}, () => {
+//     Client.remove({}, () => {
+//         done();
+//     });
+// });
 // });
 
 describe("Client tests", () => {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   let lastAdded;
   let clientsLength;
 

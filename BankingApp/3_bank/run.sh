@@ -11,15 +11,15 @@ sleep 2 # We want to wait until seaport has successfully started
 
 # servers
 echo "\nRunning servers"
-node banking_application/app.js &
+node app.js &
 #server1=$! # this is to save variables, if we want to shut down process manually. 'pkill node' is more efficient.
-node banking_application/app.js &
+node app.js &
 #server2=$!
 sleep 2 # wait until servers are initialized
 
 # loadbalancer
 echo "\nRunning loadBalancer"
-node loadBalancer.js &
+node ./loadBalancer/load-balancer.js &
 loadBalancer=$!
 sleep 2 # wait until loadbalancer is initialized
 
