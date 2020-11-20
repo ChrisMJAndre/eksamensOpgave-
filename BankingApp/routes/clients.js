@@ -12,7 +12,7 @@ routerClient.get("/", async (req, res) => {
   try {
     //await clientModel.find().then((client) => res.json({ client }));
     const clients = await clientModel.find();
-    res.send("Clients" + clients);
+    res.json(clients);
   } catch (err) {
     res.status(400).json("Error " + err);
   }
@@ -43,7 +43,7 @@ routerClient.post("/", async (req, res) => {
 // implement endpoint for showing a specific Client by id
 routerClient.get("/:id", async (req, res) => {
   let oneClient = await clientModel.findById(req.params.id).exec();
-  res.send(oneClient.firstname + "s information:" + oneClient);
+  res.json(oneClient);
 });
 
 // Implement endpoint for changing information about a client
@@ -56,7 +56,7 @@ routerClient.put("/:id", async (req, res) => {
       city: req.body.city,
     })
     .exec();
-  res.send("Updated information for " + updateClient.firstname);
+  res.json(updateClient);
 });
 
 // Implement endpoint for deleting an account using id
