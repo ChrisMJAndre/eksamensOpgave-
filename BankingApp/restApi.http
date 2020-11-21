@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fb7c8d3516e832f98595507
+GET {{base_url}}/accounts/5fb8ecfc161c2804e8ff6ce8
 
 ### 
 // Alter an account 

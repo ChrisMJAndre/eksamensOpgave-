@@ -6,7 +6,6 @@ const accountModel = require("../models/account.js");
 // Implement endpoint for showing all Accounts
 routerAccount.get("/", async (req, res) => {
   try {
-    //await clientModel.find().then((client) => res.json({ client }));
     const accounts = await accountModel.find();
     res.json(accounts);
   } catch (err) {
