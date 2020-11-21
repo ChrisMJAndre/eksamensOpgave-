@@ -52,7 +52,7 @@ routerClient.get("/:id", async (req, res) => {
     res.status(400).json("Error " + err);
   }
 });
-
+//ss
 // Implement endpoint for changing information about a client
 routerClient.put("/:id", async (req, res) => {
   try {
