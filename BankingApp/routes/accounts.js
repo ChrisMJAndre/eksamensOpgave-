@@ -21,6 +21,7 @@ routerAccount.post("/", async (req, res) => {
       balance: req.body.balance,
       alias: req.body.alias,
     });
+    /* cannot be used since it has to be sent as an object for the test to work 
     res.send(
       "Account added: \n" +
         "Client_id: " +
@@ -30,6 +31,7 @@ routerAccount.post("/", async (req, res) => {
         "\n alias: " +
         req.body.alias
     );
+    */
     res.json(create);
   } catch (err) {
     res.status(400).json("Error " + err);
@@ -62,20 +64,20 @@ routerAccount.put("/transfer", async (req, res) => {
     if (transferAmount > fromAccountBalance) {
       res.send("insufficent funds");
     } else {
-      await accountModel
+      const updatedAccount1 = await accountModel
         .updateOne(
           { _id: req.body.fromAccount },
           { balance: fromAccountBalance - transferAmount }
         )
         .exec();
 
-      await accountModel
+      const updatedAccount2 = await accountModel
         .updateOne(
           { _id: req.body.toAccount },
           { balance: toAccountBalance + transferAmount }
         )
         .exec();
-      res.json(fromAccount, toAccount);
+      res.json(updatedAccount1 + updatedAccount2);
     }
   } catch (err) {
     res.status(400).json("Error " + err);
@@ -86,9 +88,13 @@ routerAccount.put("/transfer", async (req, res) => {
 routerAccount.put("/:id", async (req, res) => {
   try {
     let updateAccount = await accountModel
-      .findByIdAndUpdate(req.params.id, {
-        $set: req.body,
-      })
+      .findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      )
       .exec();
     res.json(updateAccount);
   } catch {

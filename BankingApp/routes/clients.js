@@ -27,6 +27,7 @@ routerClient.post("/", async (req, res) => {
       streetAddress: req.body.streetAddress,
       city: req.body.city,
     });
+    /*  cannot be used since it has to be sent as an object for the test to work 
     res.send(
       "Client added: \n" +
         "firstName: " +
@@ -38,6 +39,7 @@ routerClient.post("/", async (req, res) => {
         "\n city: " +
         req.body.city
     );
+    */
     res.json(create);
   } catch (err) {
     res.status(400).json("Error " + err);
@@ -52,17 +54,17 @@ routerClient.get("/:id", async (req, res) => {
     res.status(400).json("Error " + err);
   }
 });
-//ss
 // Implement endpoint for changing information about a client
 routerClient.put("/:id", async (req, res) => {
   try {
     let updateClient = await clientModel
-      .findByIdAndUpdate(req.params.id, {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        streetAddress: req.body.streetAddress,
-        city: req.body.city,
-      })
+      .findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      )
       .exec();
     res.json(updateClient);
   } catch (err) {

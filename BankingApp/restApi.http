@@ -79,7 +79,7 @@ Content-Type: application/json
 
 ### 
 // Get information about client using specific ID 
-GET {{base_url}}/clients/5fb8e9f9fee738040c1665aa
+GET {{base_url}}/clients/5fb8da346e978116882ae820
 
 
 ### 
