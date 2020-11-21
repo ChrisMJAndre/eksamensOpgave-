@@ -63,12 +63,14 @@ routerAccount.put("/transfer", async (req, res) => {
   }
 });
 
-// Implement endpoint for changing an accounts balance
+// Implement endpoint for changing account
 routerAccount.put("/:id", async (req, res) => {
-  let updateBalance = await accountModel
-    .findByIdAndUpdate(req.params.id, { balance: req.body.balance })
+  let updateAccount = await accountModel
+    .findByIdAndUpdate(req.params.id, {
+      $set: req.body,
+    })
     .exec();
-  res.send("Updated balance for " + updateBalance.alias);
+  res.send("Updated account for " + updateAccount.alias);
 });
 
 // Implement endpoint for deleting an account using id

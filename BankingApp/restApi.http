@@ -1,5 +1,5 @@
 // Reference to base url 
-@base_url = https://localhost:3443
+@base_url = https://localhost:8080
 
 // Home page 
 GET {{base_url}}
@@ -15,28 +15,29 @@ Content-Type: application/json
 
 {
   
-    "client_id": "test",
+    "client_id": "Mads",
     "balance": "100",
-    "alias": "test"
+    "alias": "Mads"
 
 }
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fb572f924dfe730841ed90a
+GET {{base_url}}/accounts/5fb7c8d3516e832f98595507
 
 ### 
-// Alter the balance on an account 
-PUT {{base_url}}/accounts/5fb572f924dfe730841ed90a
+// Alter an account 
+PUT {{base_url}}/accounts/5fb7c8d3516e832f98595507
 Content-Type: application/json
 
 {
-    "balance": "123456789"
+    "balance": 123456789,
+    "alias":"Altered Alias"
 }
 
 ###
 // Delete a Account 
-DELETE {{base_url}}/accounts/5fb572f924dfe730841ed90a
+DELETE {{base_url}}/accounts/5fb295a1244cce3944792d86
 
 
 ###
@@ -59,18 +60,18 @@ Content-Type: application/json
 
 ###
 //Get all clients 
-GET {{base_url}}/client
+GET {{base_url}}/clients
 
 
 ###
 //Add a Client
-POST {{base_url}}/client
+POST {{base_url}}/clients
 Content-Type: application/json
 
 {
-    "firstName": "Mads",
-    "lastName": "Rasmussen",
-    "street_address": "Egilsgade 55, 3th",
+    "firstname": "Mads",
+    "lastname": "Rasmussen",
+    "streetAddress": "Egilsgade 55, 3th",
     "city": "kbh"
     
 
@@ -78,21 +79,21 @@ Content-Type: application/json
 
 ### 
 // Get information about client using specific ID 
-GET {{base_url}}/client/5fb5733024dfe730841ed90b
+GET {{base_url}}/clients/5fb5733024dfe730841ed90b
 
 
 ### 
 //Updating information about Client 
-PUT {{base_url}}/client/5fb5733024dfe730841ed90b
+PUT {{base_url}}/clients/5fb5733024dfe730841ed90b
 Content-Type: application/json
 
 {
-    "firstName": "Mads",
-    "lastName": "Eriksen",
-    "street_address": "Egilsgade 55, 3th",
+    "firstname": "Mads",
+    "lastname": "Eriksen",
+    "streetAddress": "Egilsgade 55, 3th",
     "city": "kbh"
 }
 
 ###
 // Delete a Client 
-DELETE {{base_url}}/client/5fb2a7717c42cd2108581d9d
+DELETE {{base_url}}/clients/5fb2a7717c42cd2108581d9d
