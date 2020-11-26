@@ -1,9 +1,12 @@
 const express = require("express");
 const routerAccount = express.Router();
 
+// All of the endpoints use a "try" and a "catch", in order to catch the possible errors in the code.
+
+// Importing Account Schema
 const accountModel = require("../models/account.js");
 
-// Implement endpoint for showing all Accounts
+// Endpoint for showing all Accounts
 routerAccount.get("/", async (req, res) => {
   try {
     const accounts = await accountModel.find();
@@ -13,7 +16,7 @@ routerAccount.get("/", async (req, res) => {
   }
 });
 
-// Implement endpoint to create a new Account
+// Endpoint to create a new Account
 routerAccount.post("/", async (req, res) => {
   try {
     let create = await accountModel.create({
@@ -21,24 +24,13 @@ routerAccount.post("/", async (req, res) => {
       balance: req.body.balance,
       alias: req.body.alias,
     });
-    /* cannot be used since it has to be sent as an object for the test to work 
-    res.send(
-      "Account added: \n" +
-        "Client_id: " +
-        req.body.client_id +
-        "\n balance: " +
-        req.body.balance +
-        "\n alias: " +
-        req.body.alias
-    );
-    */
     res.json(create);
   } catch (err) {
     res.status(400).json("Error " + err);
   }
 });
 
-// implement endpoint for showing a specific account by id
+// Endpoint for showing a specific account by id
 routerAccount.get("/:id", async (req, res) => {
   try {
     let oneAccount = await accountModel.findById(req.params.id).exec();
@@ -48,7 +40,7 @@ routerAccount.get("/:id", async (req, res) => {
   }
 });
 
-//Endpoint - that will transfer funds from one account to another
+// Endpoint - that will transfer funds from one account to another
 // has to be over the other put function or else the other put function takes transfer as the parameter
 routerAccount.put("/transfer", async (req, res) => {
   try {
@@ -84,7 +76,7 @@ routerAccount.put("/transfer", async (req, res) => {
   }
 });
 
-// Implement endpoint for changing account
+// Endpoint for changing account
 routerAccount.put("/:id", async (req, res) => {
   try {
     let updateAccount = await accountModel
@@ -102,7 +94,7 @@ routerAccount.put("/:id", async (req, res) => {
   }
 });
 
-// Implement endpoint for deleting an account using id
+// Endpoint for deleting an account using id
 routerAccount.delete("/:id", async (req, res) => {
   try {
     let deleteAccount = await accountModel
@@ -114,7 +106,7 @@ routerAccount.delete("/:id", async (req, res) => {
   }
 });
 
-// Implement a new endpoint, that will be able to return a specific balance by name.
+// Endpoint that returns a specific balance by id.
 routerAccount.get("/:id/balance", async (req, res) => {
   try {
     let accountBalance = await accountModel.findById(req.params.id).exec();

@@ -1,16 +1,15 @@
-// Post må godt indeholde string
-// Get mp ikke indeholde en string (skal være res.json)
-// Put skal være res.JSOn
+// Most of the endpoints has to use res.json and not res.send, because of how the test file is set up
+// the test file does not look at the schemas in the database, but at the latest created account og client, therefore it is important that we send it as an JSON object
 
 const express = require("express");
 const routerClient = express.Router();
 
+// Importing Client Schema
 const clientModel = require("../models/client.js");
 
-// Implement endpoint for showing all Clients
+// Endpoint for showing all Clients
 routerClient.get("/", async (req, res) => {
   try {
-    //await clientModel.find().then((client) => res.json({ client }));
     const clients = await clientModel.find();
     res.json(clients);
   } catch (err) {
@@ -18,7 +17,7 @@ routerClient.get("/", async (req, res) => {
   }
 });
 
-// Implement endpoint to create a new Client
+// Endpoint to create a new Client
 routerClient.post("/", async (req, res) => {
   try {
     let create = await clientModel.create({
@@ -27,25 +26,13 @@ routerClient.post("/", async (req, res) => {
       streetAddress: req.body.streetAddress,
       city: req.body.city,
     });
-    /*  cannot be used since it has to be sent as an object for the test to work 
-    res.send(
-      "Client added: \n" +
-        "firstName: " +
-        req.body.firstname +
-        "\n lastName: " +
-        req.body.lastname +
-        "\n street_address: " +
-        req.body.streetAddress +
-        "\n city: " +
-        req.body.city
-    );
-    */
     res.json(create);
   } catch (err) {
     res.status(400).json("Error " + err);
   }
 });
-// implement endpoint for showing a specific Client by id
+
+// Endpoint for showing a specific Client by id
 routerClient.get("/:id", async (req, res) => {
   try {
     let oneClient = await clientModel.findById(req.params.id).exec();
@@ -54,7 +41,9 @@ routerClient.get("/:id", async (req, res) => {
     res.status(400).json("Error " + err);
   }
 });
-// Implement endpoint for changing information about a client
+
+// Endpoint -  altering information about a client
+// Set and req.body is used so it wont make everything else = null
 routerClient.put("/:id", async (req, res) => {
   try {
     let updateClient = await clientModel
@@ -72,7 +61,7 @@ routerClient.put("/:id", async (req, res) => {
   }
 });
 
-// Implement endpoint for deleting an account using id
+// Endpoint for deleting an account using id
 routerClient.delete("/:id", async (req, res) => {
   try {
     let deleteClient = await clientModel

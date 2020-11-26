@@ -23,6 +23,7 @@ const ClientSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
+// Exporting Client Schema
 const modelClient = mongoose.model("Client", ClientSchema);
 
 module.exports = modelClient;

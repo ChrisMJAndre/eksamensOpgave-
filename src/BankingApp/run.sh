@@ -33,6 +33,11 @@ sleep 2 # wait until loadbalancer is initialized
 # sleep 1
 # done
 
+# test.js
+echo "running test.js"
+npm test &
+sleep 2 # Wait until test.js is initialized 
+
 read -p "press any key to shutdown"
 echo "\nShutting down"
 pkill node

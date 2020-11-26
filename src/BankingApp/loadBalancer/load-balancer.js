@@ -1,3 +1,4 @@
+// Importing required modules
 var https = require("https");
 var httpProxy = require("http-proxy");
 var seaport = require("seaport");
@@ -5,11 +6,12 @@ var sp = seaport.connect("localhost", 9090);
 const path = require("path");
 const fs = require("fs");
 
-// Reference til step 4
+// Reference til step 4 (modulus)
 var i = -1;
 
 var proxy = httpProxy.createProxyServer({});
 
+// Including SSL
 var server = https.createServer(
   {
     key: fs.readFileSync(path.join(__dirname, "../cert", "key.pem")),

@@ -1,3 +1,4 @@
+// Importing modules
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -9,15 +10,13 @@ const https = require("https");
 var seaport = require("seaport");
 var sp = seaport.connect("localhost", 9090);
 
-//curl http://localhost:8080
 //Added Json Body-parser
 app.use(bodyParser.json());
 
 //Import Routes
 const accountRoute = require("./routes/accounts");
-
 const clientRoute = require("./routes/clients");
-
+// Define Routes
 app.use("/accounts", accountRoute);
 app.use("/clients", clientRoute);
 
@@ -37,7 +36,6 @@ app.get("/", (req, res) => {
 });
 
 //Start listening
-
 sslServer.listen(sp.register("server"), function () {
   db.getConnection().then(() => {
     console.log("Database connected");
