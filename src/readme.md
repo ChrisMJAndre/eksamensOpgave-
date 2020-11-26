@@ -9,8 +9,13 @@ Denne Banking applikation indeholder også SSL encryption, kan ses ind i app.js
 
 ### How to RUN
 
-IF cloned run npm install to download necessary dependencies
+Run "npm install" to download necessary dependencies
 
-1. Navigate (cd) to 3_handin_template
-2. Run "node app.js"
-3. in restApi.http run the get/post requests
+1. Open terminal and navigate to "BankingApp"
+2. Run "./run.sh" in terminal
+3. This command will start seaport, 2 servers, loadbalancer, and run the test file.
+
+# Problems running
+
+Hvis i ikke kan køre denne fil, så kan det være fordi i ikke har run/execute access.
+På mac kan dette gøres ved at køre `sudo chmod 777 <fil_navn>`, og så kan i køre filen med ./<fil_navn> i terminalen.
