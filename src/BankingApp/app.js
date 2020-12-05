@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const db = require("./db.js");
+
 const path = require("path");
 const fs = require("fs");
 const https = require("https");
@@ -13,7 +13,9 @@ var sp = seaport.connect("localhost", 9090);
 //Added Json Body-parser
 app.use(bodyParser.json());
 
-//Import Routes
+// Require DB
+const db = require("./db.js");
+// Import Routes
 const accountRoute = require("./routes/accounts");
 const clientRoute = require("./routes/clients");
 // Define Routes
