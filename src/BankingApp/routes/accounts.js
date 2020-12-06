@@ -111,7 +111,7 @@ routerAccount.get("/:id/balance", async (req, res) => {
   try {
     let accountBalance = await accountModel.findById(req.params.id).exec();
     let oneBalance = accountBalance.balance;
-    res.json(accountBalance);
+    res.json(accountBalance.balance);
   } catch (err) {
     res.status(400).json("Error " + err);
   }
