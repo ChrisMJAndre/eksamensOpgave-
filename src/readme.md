@@ -12,7 +12,7 @@ Folderen indeholder både et dump for Accounts og Clients.
 ### Database setup
 
 1. navigere til db.js filen
-2. URL'en burde være "mongodb://localhost/<database name>"
+2. URL'en burde være "mongodb://localhost/(database name)"
 
 ### How to RUN
 
