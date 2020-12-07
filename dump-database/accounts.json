@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "5fce4092f7b07b36dc50489b"
+  },
+  "client_id": "5fce4091b7fc560e40dda343",
+  "balance": 88910,
+  "alias": "TEST account 3"
+}]
