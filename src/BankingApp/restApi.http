@@ -15,19 +15,19 @@ Content-Type: application/json
 
 {
   
-    "client_id": "Mads",
-    "balance": "100",
-    "alias": "Mads"
+    "client_id": "42",
+    "balance": "12345",
+    "alias": "Chris"
 
 }
 
 ### 
 // Get specific account from id 
-GET {{base_url}}/accounts/5fc923f1175cda1fa85aaf62
+GET {{base_url}}/accounts/5fce40b0f7b07b36dc50489c
 
 ### 
 // Alter an account 
-PUT {{base_url}}/accounts/5fb7c8d3516e832f98595507
+PUT {{base_url}}/accounts/5fce40b0f7b07b36dc50489c
 Content-Type: application/json
 
 {
@@ -37,12 +37,12 @@ Content-Type: application/json
 
 ###
 // Delete a Account 
-DELETE {{base_url}}/accounts/5fb295a1244cce3944792d86
+DELETE {{base_url}}/accounts/5fce40b0f7b07b36dc50489c
 
 
 ###
 // Balance for a specific account using id
-GET {{base_url}}/accounts/5fc923f1175cda1fa85aaf62/balance
+GET {{base_url}}/accounts/5fce40b0f7b07b36dc50489c/balance
 
 
 ### 
@@ -51,8 +51,8 @@ PUT {{base_url}}/accounts/transfer
 Content-Type: application/json
 
 {
-    "fromAccount": "5fb29598244cce3944792d85",
-    "toAccount": "5fb29590244cce3944792d84",
+    "fromAccount": "5fce4092f7b07b36dc50489b",
+    "toAccount": "5fce40b0f7b07b36dc50489c",
     "amount": 50
 }
 
@@ -69,9 +69,9 @@ POST {{base_url}}/clients
 Content-Type: application/json
 
 {
-    "firstname": "Mads",
+    "firstname": "Per",
     "lastname": "Rasmussen",
-    "streetAddress": "Egilsgade 55, 3th",
+    "streetAddress": "Strøget 55, 3th",
     "city": "kbh"
     
 
@@ -79,21 +79,18 @@ Content-Type: application/json
 
 ### 
 // Get information about client using specific ID 
-GET {{base_url}}/clients/5fb8da346e978116882ae820
+GET {{base_url}}/clients/5fce410ef7b07b36dc50489d
 
 
 ### 
 //Updating information about Client 
-PUT {{base_url}}/clients/5fb5733024dfe730841ed90b
+PUT {{base_url}}/clients/5fce410ef7b07b36dc50489d
 Content-Type: application/json
 
 {
-    "firstname": "Mads",
-    "lastname": "Eriksen",
-    "streetAddress": "Egilsgade 55, 3th",
-    "city": "kbh"
+    "firstname": "Torben"
 }
 
 ###
 // Delete a Client 
-DELETE {{base_url}}/clients/5fb2a7717c42cd2108581d9d
+DELETE {{base_url}}/clients/5fce410ef7b07b36dc50489d
