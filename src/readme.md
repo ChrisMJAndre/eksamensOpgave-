@@ -13,6 +13,7 @@ Folderen indeholder både et dump for Accounts og Clients.
 
 1. navigere til db.js filen
 2. URL'en burde være "mongodb://localhost/(database name)"
+3. Hvis database og collections er sat op rigtigt skal urlen være - "mongodb://localhost/Banking"
 
 ### How to RUN
 
