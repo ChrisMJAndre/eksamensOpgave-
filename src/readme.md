@@ -1,19 +1,25 @@
-# Banking Application
+### Database Dump
 
-Jeg har valgt at bruge mig af Rest Client extension i Visual Studio Code.
-Istedet for at bruge en anden applikation, fx postman. Rest Client tilader mig at ramme mine endpoints uden at gå ud af Visual Studio Code
+Et database dump af MongoDB kan findes i dump-database folder.
+Folderen indeholder både et dump for Accounts og Clients.
 
-## SSL
+1. I compass (MondoDB) kan i vælge "fill in field individually - connect
+2. Opret en ny database, navn "Banking"
+3. Opret 2 collections, "accounts" og "clients".
+4. Det er vigtigt at databasen og dine collections heder det samme, så systemet kan oprette en forbindelse til din database.
+5. Gå ind på en collection og add data, her kan du tilføje mine database dumps
 
-Denne Banking applikation indeholder også SSL encryption, kan ses ind i app.js
+### Database setup
+
+1. navigere til db.js filen
+2. URL'en burde være "mongodb://localhost/<database name>"
 
 ### How to RUN
 
-Run "npm install" to download necessary dependencies
-
 1. Open terminal and navigate to "BankingApp"
-2. Run "./run.sh" in terminal
-3. This command will start seaport, 2 servers, loadbalancer, and run the test file.
+2. Run "npm install" to download necessary dependencies
+3. Run "./run.sh" in terminal
+4. This command will start seaport, 2 servers, loadbalancer, and run the test file.
 
 # Problems running
 
