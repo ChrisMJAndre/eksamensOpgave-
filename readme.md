@@ -3,17 +3,21 @@
 Et database dump af MongoDB kan findes i dump-database folder.
 Folderen indeholder både et dump for Accounts og Clients.
 
+Download MongoDB (database) og Compass (GUI til MongoDB)
+
 1. I compass (MondoDB) kan i vælge "fill in field individually - connect
 2. Opret en ny database, navn "Banking"
 3. Opret 2 collections, "accounts" og "clients".
 4. Det er vigtigt at databasen og dine collections heder det samme, så systemet kan oprette en forbindelse til din database.
-5. Gå ind på en collection og add data, her kan du tilføje mine database dumps
+5. Gå ind på en collection og add data, her kan du tilføje de inkluderede database dumps
 
 ### Database setup
 
+Setup i koden:
+
 1. navigere til db.js filen
 2. URL'en burde være "mongodb://localhost/(database name)"
-3. Hvis database og collections er sat op rigtigt skal urlen være - "mongodb://localhost/Banking"
+3. Hvis database og collections er sat op rigtigt skal url'en være - "mongodb://localhost/Banking"
 
 ### How to RUN
 
