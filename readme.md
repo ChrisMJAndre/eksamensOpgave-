@@ -17,10 +17,11 @@ Folderen indeholder både et dump for Accounts og Clients.
 
 ### How to RUN
 
-1. Åbne en terminal og cd til "bankingApp"
-2. Kør "npm install" i terminal for at download node_modules
-3. kør one-click-run løsningen - "./run.sh"
-4. Starter seaport, 2 servers, load balancer og kører test filen
+1. Åbne en terminal
+2. cd til "rc", cd til "BankingApp"
+3. Kør "npm install" i terminal for at download node_modules
+4. kør one-click-run løsningen - "./run.sh"
+5. Starter seaport, 2 servers, load balancer og kører test filen
 
 # Problems running
 
